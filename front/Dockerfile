@@ -9,16 +9,18 @@
 # O directament executar-lo en mode interactiu (-it enlloc de  -d)) : 
 # docker run -it -p 80:80 server_nginx
 
-FROM nginx:1.25.3-alpine
+FROM node:latest
 
+# Establecemos el directorio de trabajo en /app
+WORKDIR /app
 
-# Set the working directory to /app
-WORKDIR /usr/share/nginx/html
+# Copiamos los archivos necesarios
 
-COPY * .
+# Instalamos las dependencias
+RUN npm install
 
-#expose port 8080 to the outside world
-EXPOSE 80
+# Exponemos el puerto en el que la aplicación Vue estará escuchando
+EXPOSE 3000
 
-
-
+# Comando para ejecutar la aplicación
+CMD ["npm", "run", "dev"]
