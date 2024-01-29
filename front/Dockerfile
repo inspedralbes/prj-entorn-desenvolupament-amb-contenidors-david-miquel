@@ -14,13 +14,8 @@ FROM node:latest
 # Establecemos el directorio de trabajo en /app
 WORKDIR /app
 
-# Copiamos los archivos necesarios
-
 # Instalamos las dependencias
 RUN npm install
-
-# Exponemos el puerto en el que la aplicación Vue estará escuchando
-EXPOSE 3000
 
 # Comando para ejecutar la aplicación
 CMD ["npm", "run", "dev"]
